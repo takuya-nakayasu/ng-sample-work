@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BasicService } from './services/basic.service';
+import { SampleErrorHandler } from './services/sample-error-handler.service';
 import { SampleService } from './services/sample.service';
 
 @Component({
@@ -8,9 +9,7 @@ import { SampleService } from './services/sample.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ng-sample-work';
-  constructor(
-    private sampleService: SampleService,
-    private basicService: BasicService
-  ) {}
+  constructor(private sampleErrorHandler: SampleErrorHandler) {
+    this.sampleErrorHandler.openErrorWindow();
+  }
 }
